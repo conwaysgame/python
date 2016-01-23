@@ -25,6 +25,9 @@ class ConwaysGame():
                     live_neighbours += 1
         return live_neighbours
 
+    def step(self):
+        return
+
 class ConwaysGameTests(unittest.TestCase):
     def test_set_world_size(self):
         '''set_world_size should set the width and height of the world'''
