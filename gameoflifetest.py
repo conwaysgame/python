@@ -250,27 +250,12 @@ class ConwaysGameTests(unittest.TestCase):
         self.assertEqual(game.cell_is_alive(5, 4), False)
         self.assertEqual(game.cell_is_alive(5, 5), False)
 
-#    def test_step(self):
-#        game = ConwaysGame()
-#        game.set_world_size(5, 5)
-#        game.populate(0, 2)
-#        game.populate(0, 3)
-#        game.populate(1, 2)
-#        self.assertEqual(game.cell_is_alive(1, 3), False)
-#        self.assertEqual(game.cell_is_alive(0, 0), False)
-#        self.assertEqual(game.cell_is_alive(1, 0), False)
-#        self.assertEqual(game.cell_is_alive(0, 1), False)
-#        self.assertEqual(game.cell_is_alive(1, 1), False)
-#        game.step()
-#        self.assertEqual(game.cell_is_alive(0, 2), True)
-#        self.assertEqual(game.cell_is_alive(0, 3), True)
-#        self.assertEqual(game.cell_is_alive(1, 2), True)
-#        self.assertEqual(game.cell_is_alive(1, 3), True)
-#        self.assertEqual(game.cell_is_alive(0, 0), False)
-#        self.assertEqual(game.cell_is_alive(1, 0), False)
-#        self.assertEqual(game.cell_is_alive(0, 1), False)
-#        self.assertEqual(game.cell_is_alive(1, 1), False)
-
+    def test_to_string(self):
+        game = ConwaysGame()
+        game.set_world_size(2, 2)
+        game.populate(0, 0)
+        game.populate(1, 1)
+        self.assertEqual(str(game), "◼◻\n◻◼")
 
 if __name__ == '__main__':
     unittest.main()
