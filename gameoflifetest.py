@@ -28,7 +28,7 @@ class ConwaysGame():
     def step(self):
         # 1. Any live cell with < 2 live neighbour dies
         # 2. Any live cell 2 or 3 live neighbours will live
-        # 3. Any live cll with > 3 live neighbours dies
+        # 3. Any live cell with > 3 live neighbours dies
         # 4. Any dead cell with exactly three live neighbours comes to life
         new_map = [[0 for i in range(self.height)] for i in range(self.width)]
         for x in range(0, self.width):
