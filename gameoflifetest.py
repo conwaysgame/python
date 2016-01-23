@@ -35,6 +35,12 @@ class ConwaysGameTests(unittest.TestCase):
         self.assertEqual(game.cell_is_alive(1, 2), True)
         self.assertEqual(game.cell_is_alive(7, 4), True)
 
+    def test_populate_outside_of_range(self):
+        game = ConwaysGame()
+        game.set_world_size(3, 1)
+        self.assertRaises(IndexError, game.populate, 3, 0)
+        self.assertRaises(IndexError, game.populate, 0, 1)
+
 
 if __name__ == '__main__':
     unittest.main()
