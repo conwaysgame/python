@@ -30,11 +30,13 @@ class ConwaysGame():
         # 2. Any live cell 2 or 3 live neighbours will live
         # 3. Any live cll with > 3 live neighbours dies
         # 4. Any dead cell with exactly three live neighbours comes to life
-
+        new_map = [[0 for i in range(self.height)] for i in range(self.width)]
         for x in range(0, self.width):
             for y in range(0, self.height):
                 if self.number_of_live_neighbours(x, y) < 2:
-                    self.map[x][y] = 0
+                    new_map[x][y] = 0
+
+        self.map = new_map
         return
 
 class ConwaysGameTests(unittest.TestCase):
