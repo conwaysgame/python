@@ -41,6 +41,10 @@ class ConwaysGame():
                    (self.number_of_live_neighbours(x, y) == 2 or \
                    self.number_of_live_neighbours(x, y) == 3):
                     new_map[x][y] = 1
+                # 3
+                if self.cell_is_alive(x, y) == True and \
+                   self.number_of_live_neighbours(x, y) > 3:
+                    new_map[x][y] = 0
                 # 4
                 if self.cell_is_alive(x, y) == False and \
                    self.number_of_live_neighbours(x, y) == 3:
@@ -166,7 +170,7 @@ class ConwaysGameTests(unittest.TestCase):
         game.step()
         self.assertEqual(game.cell_is_alive(0, 0), True)
         self.assertEqual(game.cell_is_alive(0, 1), False)
-        self.assertEqual(game.cell_is_alive(0, 2), True)
+        self.assertEqual(game.cell_is_alive(0, 2), False)
         self.assertEqual(game.cell_is_alive(1, 0), True)
         self.assertEqual(game.cell_is_alive(1, 1), False)
         self.assertEqual(game.cell_is_alive(1, 2), True)
