@@ -1,3 +1,5 @@
+import time
+
 class ConwaysGame():
     def __init__(self):
         self.map = [[]]
@@ -64,3 +66,20 @@ class ConwaysGame():
                 grid_string += "\n"
 
         return grid_string
+
+if __name__ == '__main__':
+    # Let's make a glider
+    game = ConwaysGame()
+    game.set_world_size(20, 20)
+    game.populate(2, 1)
+    game.populate(3, 2)
+    game.populate(1, 3)
+    game.populate(2, 3)
+    game.populate(3, 3)
+
+    while True:
+        print(game)
+        print("-" * 20)
+        game.step()
+        time.sleep(0.5)
+
