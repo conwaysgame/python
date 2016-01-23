@@ -92,6 +92,21 @@ class ConwaysGameTests(unittest.TestCase):
         self.assertEqual(game.cell_is_alive(1, 0), False)
         self.assertEqual(game.cell_is_alive(1, 1), False)
 
+    def test_step_live_cell_with_two_live_neighbours(self):
+        game = ConwaysGame()
+        game.set_world_size(2, 2)
+        game.populate(0, 1)
+        game.populate(1, 0)
+        self.assertEqual(game.cell_is_alive(0, 0), False)
+        self.assertEqual(game.cell_is_alive(0, 1), True)
+        self.assertEqual(game.cell_is_alive(1, 0), True)
+        self.assertEqual(game.cell_is_alive(1, 1), False)
+        game.step()
+        self.assertEqual(game.cell_is_alive(0, 0), True)
+        self.assertEqual(game.cell_is_alive(0, 1), False)
+        self.assertEqual(game.cell_is_alive(1, 0), False)
+        self.assertEqual(game.cell_is_alive(1, 1), True)
+
 #    def test_step(self):
 #        game = ConwaysGame()
 #        game.set_world_size(5, 5)
