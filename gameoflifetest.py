@@ -38,7 +38,8 @@ class ConwaysGame():
                     new_map[x][y] = 0
                 # 2
                 if self.cell_is_alive(x, y) == True and \
-                   self.number_of_live_neighbours(x, y) == 2:
+                   (self.number_of_live_neighbours(x, y) == 2 or \
+                   self.number_of_live_neighbours(x, y) == 3):
                     new_map[x][y] = 1
                 # 4
                 if self.cell_is_alive(x, y) == False and \
