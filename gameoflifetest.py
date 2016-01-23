@@ -54,6 +54,19 @@ class ConwaysGame():
 
         return
 
+    def __str__(self):
+        grid_string = ""
+        for y in range(0, self.height):
+            for x in range(0, self.width):
+                if self.cell_is_alive(x, y):
+                    grid_string += "◼"
+                else:
+                    grid_string += "◻"
+            if y < self.height - 1:
+                grid_string += "\n"
+
+        return grid_string
+
 class ConwaysGameTests(unittest.TestCase):
     def test_set_world_size(self):
         '''set_world_size should set the width and height of the world'''
