@@ -1,4 +1,5 @@
 import time
+from itertools import product
 
 class ConwaysGame():
     def __init__(self):
@@ -18,12 +19,10 @@ class ConwaysGame():
         return self.map[x][y] == 1
 
     def number_of_live_neighbours(self, x, y):
-        live_neighbours = 0
-        for i in range(max(x - 1, 0), min(x + 1, self.width - 1) + 1):
-            for j in range (max(y - 1, 0), min(y + 1, self.height - 1) + 1):
-                if self.cell_is_alive(i, j) == True and (i == x and j == y) == False:
-                    live_neighbours += 1
-        return live_neighbours
+        neighbour_coords = product(range(max(x - 1, 0), min(x + 1, self.width - 1) + 1),
+                                   range(max(y - 1, 0), min(y + 1, self.height - 1) + 1))
+
+        return sum(self.map[i][j] for i, j in neighbour_coords if i != x or y != j)
 
     def step(self):
         # 1. Any live cell with < 2 live neighbour dies
